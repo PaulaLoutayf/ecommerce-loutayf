@@ -5,14 +5,14 @@ import CartWidget from "./CartWidget";
 
 function NavBar() {
   return (
-    <Navbar bg="primary" variant="dark">
+    <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">PhotoFrames</Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link href="#home">Inicio</Nav.Link>
-          <Nav.Link href="#features">Shop</Nav.Link>
-          <Nav.Link href="#pricing">Contacto</Nav.Link>
-          <Nav.Link href="#pricing">
+        <Navbar.Brand href="/">PhotoFrames</Navbar.Brand>
+        <Nav>
+          <Nav.Link href="/category/a">Animals</Nav.Link>
+          <Nav.Link href="/category/b">Landscapes</Nav.Link>
+          <Nav.Link href="/category/c">Buildings</Nav.Link>
+          <Nav.Link href="#pricing" className="ml-5">
             <CartWidget />
           </Nav.Link>
         </Nav>

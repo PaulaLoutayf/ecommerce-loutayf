@@ -1,14 +1,20 @@
+import { Link } from "react-router-dom";
+
 function Item({ itemInfo }) {
   return (
-    <div>
+    <Link className="item-link" to={`/item/${itemInfo.id}`}>
       <div>
-        <img src={itemInfo.pictureUrl} alt={itemInfo.description} />
+        <img
+          className="image-container"
+          src={itemInfo.pictureUrl}
+          alt={itemInfo.description}
+        />
       </div>
       <div>
-        <h1>{itemInfo.title}</h1>
-        <h2>{itemInfo.price}</h2>
+        <h1 className="item-title">{itemInfo.title}</h1>
+        <h2 className="item-price">{itemInfo.price}</h2>
       </div>
-    </div>
+    </Link>
   );
 }
 export default Item;

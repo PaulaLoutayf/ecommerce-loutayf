@@ -33,11 +33,17 @@ function ItemCount({ stock, initial, onAdd }) {
     <div>
       <div>
         <p>Photo premium</p>
-        <Button onClick={resta}>-</Button>
-        <span>{count}</span>
-        <Button onClick={suma}>+</Button>
+        <Button class="btn btn-outline-secondary" onClick={resta}>
+          -
+        </Button>
+        <span className="number-count">{count}</span>
+        <Button class="btn btn-outline-secondary" onClick={suma}>
+          +
+        </Button>
       </div>
-      <button onClick={agregar}>Agregar al carrito</button>
+      <button class="btn btn-outline-secondary mt-3" onClick={agregar}>
+        Agregar al carrito
+      </button>
     </div>
   );
 }

@@ -1,33 +1,38 @@
 import { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
+import { useParams, useNavigate } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-
-const itemMock = {
-  id: "1",
-  title: "GIRAFFE POSTER",
-  description:
-    "JIRAFA CON GOMA DE MASCAR – PÓSTER DE ANIMALES CON UNA JIRAFA CON UN GLOBO DE CHICLE EN LA BOCA, FONDO ROSA",
-  price: "$ 1.500,00",
-  pictureUrl:
-    "https://desenio.es/bilder/artiklar/zoom/11769_2.jpg?imgwidth=435&qt=Jirafa%20con%20goma%20de%20mascar",
-};
+import itemsMock from "../itemsMock";
 
 function ItemDetailContainer(props) {
+  const navigate = useNavigate();
+  let { id } = useParams();
   const [item, setItem] = useState();
 
   useEffect(() => {
+    let itemToReturn = null;
+    if (id) {
+      itemToReturn = itemsMock.filter((i) => i.id === id)[0];
+    } else {
+      navigate("/");
+    }
     const getItem = () => {
       return new Promise((resolve) => {
         setTimeout(() => {
-          resolve(setItem(itemMock));
+          resolve(setItem(itemToReturn));
         }, 2000);
       });
     };
     getItem();
-  }, []);
+  }, [id, navigate]);
 
   return (
     <>
-      <ItemDetail itemDetail={item} />
+      {item ? (
+        <ItemDetail itemDetail={item} />
+      ) : (
+        <Spinner className="mt-5" animation="border" />
+      )}
     </>
   );
 }
