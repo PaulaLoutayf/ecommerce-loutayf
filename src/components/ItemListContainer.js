@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import itemsMock from "../itemsMock";
 
@@ -26,13 +25,9 @@ function ItemListContainer(props) {
     fetchItems();
   }, [categoryId]);
 
-  function addItem(qty) {
-    console.log("Items añadidos: ", qty);
-  }
   return (
     <>
       <div>{props.item}</div>
-      <ItemCount initial={1} stock={5} onAdd={addItem} />
       {items.length > 0 ? (
         <ItemList items={items} />
       ) : (
