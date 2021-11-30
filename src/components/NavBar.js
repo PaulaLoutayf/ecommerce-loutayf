@@ -1,7 +1,7 @@
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import CartWidget from "./CartWidget";
+import { FaShoppingCart } from "react-icons/fa";
 
 function NavBar() {
   return (
@@ -12,8 +12,8 @@ function NavBar() {
           <Nav.Link href="/category/a">Animals</Nav.Link>
           <Nav.Link href="/category/b">Landscapes</Nav.Link>
           <Nav.Link href="/category/c">Buildings</Nav.Link>
-          <Nav.Link href="#pricing" className="ml-5">
-            <CartWidget />
+          <Nav.Link href="/cart" className="ml-5">
+            <FaShoppingCart />
           </Nav.Link>
         </Nav>
       </Container>

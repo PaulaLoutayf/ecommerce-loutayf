@@ -20,7 +20,7 @@ function ItemDetailContainer(props) {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve(setItem(itemToReturn));
-        }, 2000);
+        }, 1000);
       });
     };
     getItem();

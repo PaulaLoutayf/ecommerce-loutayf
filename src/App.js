@@ -6,24 +6,27 @@ import NavBar from "./components/NavBar.js";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import CartWidget from "./components/CartWidget";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar titulo="PhotoFrames" />
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<ItemListContainer />} />
-          <Route
-            exact
-            path="/category/:categoryId"
-            element={<ItemListContainer />}
-          />
-          <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-          <Route exact path="/cart" element={<CartWidget />} />
-        </Routes>
-      </Router>
-    </div>
+    <CartProvider>
+      <div className="App">
+        <NavBar titulo="PhotoFrames" />
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<ItemListContainer />} />
+            <Route
+              exact
+              path="/category/:categoryId"
+              element={<ItemListContainer />}
+            />
+            <Route exact path="/item/:id" element={<ItemDetailContainer />} />
+            <Route exact path="/cart" element={<CartWidget />} />
+          </Routes>
+        </Router>
+      </div>
+    </CartProvider>
   );
 }
 
