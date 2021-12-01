@@ -5,15 +5,15 @@ import "./App.css";
 import NavBar from "./components/NavBar.js";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-import CartWidget from "./components/CartWidget";
+import CartPage from "./components/CartPage";
 import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
-    <CartProvider>
-      <div className="App">
-        <NavBar titulo="PhotoFrames" />
-        <Router>
+    <Router>
+      <CartProvider>
+        <div className="App">
+          <NavBar titulo="PhotoFrames" />
           <Routes>
             <Route exact path="/" element={<ItemListContainer />} />
             <Route
@@ -22,11 +22,11 @@ function App() {
               element={<ItemListContainer />}
             />
             <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-            <Route exact path="/cart" element={<CartWidget />} />
+            <Route exact path="/cart" element={<CartPage />} />
           </Routes>
-        </Router>
-      </div>
-    </CartProvider>
+        </div>
+      </CartProvider>
+    </Router>
   );
 }
 

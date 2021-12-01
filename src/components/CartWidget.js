@@ -1,23 +1,13 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { FaShoppingCart } from "react-icons/fa";
 
 function CartWidget() {
   const { cart } = useContext(CartContext);
   return (
-    <div className="mt-5">
-      {cart.length === 0 ? (
-        <span>No hay items en el carrito</span>
-      ) : (
-        <div>
-          {cart.map((item, index) => (
-            <div key={index}>
-              <span>{item.title} - </span>
-              <span>qty: {item.qty} - </span>
-              <span>$ {item.qty * item.priceNum}</span>
-            </div>
-          ))}
-        </div>
-      )}
+    <div className={cart.length === 0 && "d-none"}>
+      <FaShoppingCart />
+      <span className="px-2">{cart.length}</span>
     </div>
   );
 }
